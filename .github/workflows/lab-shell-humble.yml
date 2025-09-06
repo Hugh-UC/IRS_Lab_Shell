@@ -1,0 +1,73 @@
+name: IRS Shell Build
+
+on:
+  workflow_dispatch:
+  push:
+    branches: 
+      - main
+    paths:
+      - lab_shell_docker/**
+      - .github/workflows/lab-shell-humble.yml
+
+  pull_request:
+    branches: 
+      - main
+    paths:
+      - lab_shell_docker/**
+      - .github/workflows/lab-shell-humble.yml
+
+env:
+  REGISTRY: ghcr.io
+  OWNER: hugh-uc
+  IMAGE_NAME: irs-lab-shell
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+  
+jobs:
+  build-and-push-image:
+    runs-on: ubuntu-latest
+    
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Remove unnecessary files
+        run: |
+          sudo rm -rf /usr/share/dotnet
+          sudo rm -rf "$AGENT_TOOLSDIRECTORY"
+          
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+      
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to the Container registry
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Extract metadata (tags, labels) for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}
+
+      - name: Build and Push
+        uses: docker/build-push-action@v5
+        with:
+          context: ./lab_shell_docker
+          file: lab_shell_docker/Dockerfile
+          platforms: linux/amd64
+          push: true
+          tags: |
+            ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:latest
+            ${{ env.REGISTRY }}/${{ env.OWNER }}/${{ env.IMAGE_NAME }}:humble
