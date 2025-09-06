@@ -6,14 +6,16 @@ on:
     branches: 
       - main
     paths:
-      - lab_shell_docker/**
+      - Dockerfile
+      - workspace_entrypoint.sh
       - .github/workflows/lab-shell-humble.yml
 
   pull_request:
     branches: 
       - main
     paths:
-      - lab_shell_docker/**
+      - Dockerfile
+      - workspace_entrypoint.sh
       - .github/workflows/lab-shell-humble.yml
 
 env:
@@ -64,8 +66,8 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v5
         with:
-          context: ./lab_shell_docker
-          file: lab_shell_docker/Dockerfile
+          context: .
+          file: ./Dockerfile
           platforms: linux/amd64
           push: true
           tags: |
