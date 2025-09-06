@@ -10,7 +10,7 @@ Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles a
 
 ### 1. Clone the Repositories
 
-First, you need to clone both the main lab repository and this repository. You should clone them into your user's home directory (`~`).
+First, you need to clone both the main lab repository, your group repository and THEN this repository. You should clone them into your user's home directory (`~`).
 
 
 Clone the '[Collaborative Robotics Lab](https://github.com/CollaborativeRoboticsLab/industrial-robots-and-systems-world.git)' lab repository
@@ -21,7 +21,7 @@ git clone https://github.com/CollaborativeRoboticsLab/industrial-robots-and-syst
 Clone your group repository
 ```sh
 # replace <group_number> with your group's number (i.e. 07)
-git clone https://github.com/Hugh-UC/IRS_2025_<groups_number>.git ~/IRS_2025_01
+git clone https://github.com/Hugh-UC/IRS_2025_<groups_number>.git ~/IRS_2025_<group_number>
 ```
 
 Clone [this repository](https://github.com/Hugh-UC/IRS_Lab_Sell.git)
