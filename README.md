@@ -21,6 +21,12 @@ Clone the '[Collaborative Robotics Lab](https://github.com/CollaborativeRobotics
 git clone https://github.com/CollaborativeRoboticsLab/industrial-robots-and-systems-world.git ~/industrial-robots-and-systems-world
 ```
 
+Clone your group repository
+```sh
+# replace <group_number> with your group's number (i.e. 07)
+git clone https://github.com/Hugh-UC/IRS_2025_<groups_number>.git ~/IRS_2025_01
+```
+
 Clone [this repository](https://github.com/Hugh-UC/IRS_Lab_Sell.git)
 ```sh
 git clone https://github.com/Hugh-UC/IRS_Lab_Shell.git ~/IRS_Lab_Shell
