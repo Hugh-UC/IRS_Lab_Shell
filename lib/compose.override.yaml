@@ -1,0 +1,53 @@
+services:
+  lab-shell:
+    container_name: lab-shell
+    image: ghcr.io/hugh-uc/irs-lab-shell:humble
+
+    # allocates pseudo-terminal & keeps input stream open
+    tty: true
+    stdin_open: true
+
+    # provide a command for the entrypoint script
+    command: bash -l
+
+    # host networking to interact with other containers
+    network_mode: host
+
+    # volume mapping for local folder links
+    volumes:
+      - PLACEHOLDER:/root/irslab_ws/src
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
+      - /etc/localtime:/etc/localtime:ro
+      - /dev:/dev
+
+    # set the environment variables required for graphics and ROS
+    environment:
+      - DISPLAY
+      - QT_X11_NO_MITSHM=1
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=all
+      - ROS_DOMAIN_ID=0
+      - PYTHONUNBUFFERED=1
+
+    # sets the script that will be executed (container's main process)
+    entrypoint: /workspace_entrypoint.sh
+
+    privileged: true
+    restart: unless-stopped
+  
+  # adds a volume to share local files with lab containers
+  irs-simulation:
+    volumes:
+      - PLACEHOLDER:/root/irslab_ws/src
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw    # GUI related
+
+  irs-openplc-runtime:
+    volumes:
+      - PLACEHOLDER:/root/irslab_ws/src
+  
+  # disable service
+  omron_moma_ros2:
+    volumes:
+      - PLACEHOLDER:/root/irslab_ws/src
+      - /dev:/dev
+      - /tmp/.X11-unix:/tmp/.X11-unix:rw
