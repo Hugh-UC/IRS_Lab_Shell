@@ -1,11 +1,8 @@
-# IRS_Lab_Shell
-Dockerfiles and build scripts for the IRS lab shell. This repository contains the environment configurations needed to run a development shell extension for Industrial Robots &amp; Systems lab, built on ROS 2 Humble.
+# Lab Shell | Docker for Industrial Robots and Systems
+
+Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles and build scripts for the IRS lab shell. This repository contains the environment configurations needed to run a development shell extension for Industrial Robots &amp; Systems lab, built on ROS 2 Humble. The provided scripts automatically configure your local environment to work with the main lab's `industrial-robots-and-systems-world` repository.
 
 ***
-
-## Install Lab Shell | Docker for Industrial Robots and Systems
-
-Welcome to the Industrial Robots and Systems Lab Shell repository! This provides a pre-configured Docker environment for developing ROS 2 projects. The provided scripts automatically configure your local environment to work with the main lab's `industrial-robots-and-systems-world` repository.
 
 <br>
 
