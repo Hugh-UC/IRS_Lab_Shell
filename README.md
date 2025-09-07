@@ -51,9 +51,7 @@ Run Override file setup script
 ```
 
 **What the script does:**
-
 - Copies the `compose.override.yaml` file from this repository to the `industrial-robots-and-systems-world` directory.
-
 - Updates the `compose.override.yaml` file to link your local `~/IRS_2025_<group_number> directory` to the Docker container's workspace.
 
 <br>
@@ -70,22 +68,22 @@ cd ~/industrial-robots-and-systems-world
 ```
 
 Pull the latest docker containers
-```bash
+```sh
 docker compose pull
 ```
 
 Allow permission for UI interfaces from docker containers
-```bash
+```sh
 xhost +local:root
 ```
 
 Start the docker containers
-```bash
+```sh
 docker compose up
 ```
 
 Optional Flags:
-```bash
+```sh
 docker compose up -d --build
 ```
 - `docker compose up -d`: Use the `-d` (detached) flag to run the containers in the background.
@@ -105,12 +103,12 @@ docker compose up -d --build
 ```
 
 Execute new session
-```bash
+```sh
 docker exec -it lab-shell /bin/bash
 ```
 
 Navigate to workspace
-```bash
+```sh
 cd ~/irslab_ws/src
 ```
 Your local files from `~/IRS_2025_<group_number>` will be available in `~/irslab_ws/src>` inside the container.
@@ -129,12 +127,12 @@ cd ~/industrial-robots-and-systems-world
 ```
 
 Stop the docker containers
-```bash
+```sh
 docker compose stop
 ```
 
 Remove docker containers
-```bash
+```sh
 docker compose down
 ```
 
@@ -147,12 +145,12 @@ docker compose down
 You can check that the container is running and that you are using the correct `name` for the `exec` command:
 
 Find container name `<container_name>`
-```bash
+```sh
 docker ps
 ```
 
 Execute new session
-```bash
+```sh
 docker exec -it <container_name> /bin/bash
 ```
 
@@ -163,12 +161,12 @@ docker exec -it <container_name> /bin/bash
 There may have been an issue with the custom docker sourcing the ros2 environment. In this case you may have to manually source it after every Docker restart. set
 
 Execute session
-```bash
+```sh
 docker exec -it lab-shell /bin/bash
 ```
 
 Source ROS2 environment
-```bash
+```sh
 source /opt/ros/humble/setup.bash
 ```
 
@@ -185,28 +183,108 @@ This error means that the ROS 2 environment is not properly configured. The `ROS
 In this case, you will have to install the Middleware after every Docker restart and source it for every new session.
 
 Execute session
-```bash
+```sh
 docker exec -it lab-shell /bin/bash
 ```
 
 Install Middleware
-```bash
+```sh
 apt-get install ros-humble-rmw-cyclonedds-cpp
 ```
 
 Update packages
-```bash
+```sh
 apt-get update
 ```
 
 Ensure Middleware is set correctly (should be perminantly set)
-```bash
+```sh
 echo "export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp" >> ~/.bashrc
 ```
 
 Source Middleware to apply changes
-```bash
+```sh
 source ~/.bashrc
 ```
 
 ***
+
+<br>
+
+# IRS_Lab_Shell as Submodule
+
+This section explains how to use this repository as a submodule within your group's repository (`IRS_2025_<group_number>`).
+It also describes how to update the submodule pointer if any changes are made to this repository.
+
+<br>
+
+## Setting Up Submodule
+
+### 1. Add to Group Repository
+
+Navigate to group repository (IRS_2025_<group_number>)
+```sh
+cd ~/IRS_2025_<group_number>
+```
+
+Add submodule to repository
+```sh
+git submodule add https://github.com/Hugh-UC/IRS_Lab_Shell.git lab_shell_docker
+```
+**What this command does:**
+- Create a new directory named `lab_shell_docker`.
+- Create a `.gitmodules` file in your main repository's root.
+  - Records the URL and the specific commit from this `IRS_Lab_Shell` repository.
+
+Commit and Push Submodule
+```sh
+git add .
+git commit -m "Adding IRS_Lab_Shell development docker as a Git submodule"
+git push origin main
+```
+
+### 2. Clone your Repository with IRS_Lab_Shell
+```sh
+git clone --recurse-submodules https://github.com/<github_user>/IRS_2025_<groups_number>.git ~/IRS_2025_<group_number>
+```
+
+**What this command does:**
+- `--recurse-submodules`: This flag tells Git to not only clone the main repository but also to automatically initialize and update any submodules that it finds.
+
+<br>
+
+## Update Submodule Pointer
+
+To synchronize any changes in this repository with your IRS_2025_<group_number> repository, you need to update the submodule's pointer of your repository. This involves pulling the latest commits within the submodule and then committing that change to the main repository.
+
+### 1. Update the Submodule
+
+Navigate to Lab Shell repository
+```sh
+cd ~/IRS_2025_<group_number>/lab_shell_docker
+```
+
+Pull latest repository changes
+```sh
+git pull origin main
+```
+
+### 2. Update Submodule Pointer
+
+Navigate back to the main repository folder
+```sh
+cd ..
+```
+
+Update and commit submodule changes
+```sh
+git add lab_shell_docker
+git commit -m "chore: Update IRS_Lab_Shell submodule to latest commit"
+git push origin main
+```
+
+***
+
+
+
+
