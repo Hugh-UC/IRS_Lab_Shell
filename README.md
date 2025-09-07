@@ -52,9 +52,9 @@ Run Override file setup script
 
 **What the script does:**
 
-- Copies the compose.override.yaml file from this repository to the industrial-robots-and-systems-world directory.
+- Copies the `compose.override.yaml` file from this repository to the `industrial-robots-and-systems-world` directory.
 
-- Updates the compose.override.yaml file to link your local ~/IRS_2025_<group_number> directory to the Docker container's workspace.
+- Updates the `compose.override.yaml` file to link your local `~/IRS_2025_<group_number> directory` to the Docker container's workspace.
 
 <br>
 
