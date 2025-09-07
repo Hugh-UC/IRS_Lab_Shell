@@ -269,6 +269,11 @@ Pull latest repository changes
 git pull origin main
 ```
 
+To ignore local changes before pull
+```sh
+git reset --hard origin/main
+```
+
 ### 2. Update Submodule Pointer
 
 Navigate back to the main repository folder
