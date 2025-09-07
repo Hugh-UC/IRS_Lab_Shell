@@ -20,8 +20,8 @@ git clone https://github.com/CollaborativeRoboticsLab/industrial-robots-and-syst
 
 Clone your group repository
 ```sh
-# replace <group_number> with your group's number (i.e. 07)
-git clone https://github.com/Hugh-UC/IRS_2025_<groups_number>.git ~/IRS_2025_<group_number>
+# replace <github_user> with your github user name and <group_number> with your group's number (i.e. 07)
+git clone https://github.com/<github_user>/IRS_2025_<groups_number>.git ~/IRS_2025_<group_number>
 ```
 
 Clone [this repository](https://github.com/Hugh-UC/IRS_Lab_Sell.git)
