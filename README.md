@@ -6,6 +6,12 @@ Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles a
 
 <br>
 
+### Lab Specific Instructions
+
+- [Click here for Lab 5 Instructions](./Lab5-README.md)
+
+<br>
+
 ## Getting Started
 
 ### 1. Clone the Repositories
