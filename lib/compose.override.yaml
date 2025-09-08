@@ -45,7 +45,6 @@ services:
     volumes:
       - PLACEHOLDER:/root/irslab_ws/src
   
-  # disable service
   omron_moma_ros2:
 #    command: "true"
     volumes:
