@@ -6,9 +6,34 @@ Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles a
 
 <br>
 
-### Lab Specific Instructions
+## Table of Contents
 
-- [Click here for Lab 5 Instructions](./Lab5-README.md)
+### Main README.md
+
+- [Getting Started](#getting-started)
+  - [1. Clone the Repositories](#1-clone-the-repositories)
+  - [2. Run the Setup Script](#2-run-the-setup-script)
+- [Launching the Containers](#launching-the-containers)
+  - [1. Start the Workspace](#1-start-the-workspace)
+  - [2. Access the Lab Shell](#2-access-the-lab-shell)
+- [Stopping the Containers](#stopping-the-containers)
+  - [1. Stop the Workspace](#1-stop-the-workspace)
+- [Debugging](#debugging)
+  - [Container Not Found](#container-not-found--lab-shell-is-not-being-found)
+  - [ROS2 Not Sourced](#ros2-not-sourced--bash-ros2-command-not-found)
+  - [RMW Implementation Not Configured](#rmw-implementation-not-configured--error-getting-rmw-implementation-identifier)
+- [IRS_Lab_Shell as Submodule](#irs_lab_shell-as-submodule)
+  - [Setting Up Submodule](#setting-up-submodule)
+    - [1. Add to Group Repository](#1-add-to-group-repository)
+    - [2. Clone your Repository with IRS_Lab_Shell](#2-clone-your-repository-with-irs_lab_shell)
+  - [Update Submodule Pointer](#update-submodule-pointer)
+    - [1. Update the Submodule](#1-update-the-submodule)
+    - [2. Update Submodule Pointer](#2-update-submodule-pointer)
+
+
+### Lab Specific README.md
+
+- [Lab 5 Instructions](./Lab5-README.md)
 
 <br>
 
