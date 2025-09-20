@@ -18,10 +18,16 @@ Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles a
   - [2. Access the Lab Shell](#2-access-the-lab-shell)
 - [Stopping the Containers](#stopping-the-containers)
   - [1. Stop the Workspace](#1-stop-the-workspace)
+
+<br>
+
 - [Debugging](#debugging)
   - [Container Not Found](#container-not-found--lab-shell-is-not-being-found)
   - [ROS2 Not Sourced](#ros2-not-sourced--bash-ros2-command-not-found)
   - [RMW Implementation Not Configured](#rmw-implementation-not-configured--error-getting-rmw-implementation-identifier)
+
+<br>
+
 - [IRS_Lab_Shell as Submodule](#irs_lab_shell-as-submodule)
   - [Setting Up Submodule](#setting-up-submodule)
     - [1. Add to Group Repository](#1-add-to-group-repository)
