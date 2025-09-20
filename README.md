@@ -4,6 +4,8 @@ Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles a
 
 ***
 
+### Release (v1.0)
+
 <br>
 
 ## Table of Contents
