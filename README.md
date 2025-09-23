@@ -24,7 +24,7 @@ Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles a
 <br>
 
 - [Debugging](#debugging)
-  - [GHCR Pull Denial](#ghcr-pull-denial--response-denied)
+  - [GHCR Pull Denial](#ghcr-pull-denial----response-denied)
   - [Container Not Found](#container-not-found--lab-shell-is-not-being-found)
   - [ROS2 Not Sourced](#ros2-not-sourced--bash-ros2-command-not-found)
   - [RMW Implementation Not Configured](#rmw-implementation-not-configured--error-getting-rmw-implementation-identifier)
