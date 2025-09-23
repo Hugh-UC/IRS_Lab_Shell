@@ -341,6 +341,7 @@ Password for 'https://<github_username>@github.com': <personal_access_token>
 
 **Optional:** You can store your credentials for multiple uses before pushing a commit by follow the steps under: [Debugging](#debugging) > [Store Authentication Credentials](#store-authentication-credentials-temporarily)
 
+<br>
 
 ### 2. Clone your Repository with IRS_Lab_Shell
 ```sh
@@ -372,6 +373,8 @@ To ignore local changes before pull
 ```sh
 git reset --hard origin/main
 ```
+
+<br>
 
 ### 2. Update Submodule Pointer
 
