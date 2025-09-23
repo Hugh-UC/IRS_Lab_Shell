@@ -281,11 +281,16 @@ Set a timer to store credentials using 'cache helper'
 ```sh
 git config --global credential.helper 'cache --timeout=86400'
 ```
+Timeouts:
+- 1 hour : &nbsp; &nbsp; &nbsp; timeout=3600
+- 24 hours : &nbsp; timeout=86400
 
 Next used of credentials is cached (removed on timeout)
 ```sh
 git push origin main
 ```
+
+<br>
 
 ***
 
