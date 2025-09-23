@@ -179,6 +179,27 @@ docker compose down
 
 ## Debugging
 
+### Error response from daemon: Head "https://ghcr.io/v2/... denied: denied
+
+If this issue occurs when trying to use `docker compose pull`, use the following command to clear any credentials for `ghcr.io`:
+
+Enter the lab docker folder
+```sh
+cd ~/industrial-robots-and-systems-world
+```
+
+Execute clear credentials
+```sh
+docker logout ghcr.io
+```
+
+Re-run pull request
+```sh
+docker compose pull
+```
+
+<br>
+
 ### Container Not Found &nbsp; | &nbsp; 'lab-shell' is not being found.
 
 You can check that the container is running and that you are using the correct `name` for the `exec` command:
