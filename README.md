@@ -24,9 +24,11 @@ Welcome to the Industrial Robots and Systems Lab Shell repository! Dockerfiles a
 <br>
 
 - [Debugging](#debugging)
+  - [GHCR Pull Denial](#ghcr-pull-denial--response-denied)
   - [Container Not Found](#container-not-found--lab-shell-is-not-being-found)
   - [ROS2 Not Sourced](#ros2-not-sourced--bash-ros2-command-not-found)
   - [RMW Implementation Not Configured](#rmw-implementation-not-configured--error-getting-rmw-implementation-identifier)
+  - [Store Authentication Credentials](#store-authentication-credentials-temporarily)
 
 <br>
 
@@ -179,9 +181,11 @@ docker compose down
 
 ## Debugging
 
-### Error response from daemon: Head "https://ghcr.io/v2/... denied: denied
+### GHCR Pull Denial &nbsp; | &nbsp; response: denied
 
-If this issue occurs when trying to use `docker compose pull`, use the following command to clear any credentials for `ghcr.io`:
+`Error response from daemon: Head "https://ghcr.io/v2/... denied: denied`
+
+If you have received a similar error message when trying to use `docker compose pull`, use the following command to clear any credentials for `ghcr.io`:
 
 Enter the lab docker folder
 ```sh
@@ -267,6 +271,22 @@ Source Middleware to apply changes
 source ~/.bashrc
 ```
 
+<br>
+
+### Store Authentication Credentials (Temporarily)
+
+You can temporarily store your GitHub authentication credentials by:
+
+Set a timer to store credentials using 'cache helper'
+```sh
+git config --global credential.helper 'cache --timeout=86400'
+```
+
+Next used of credentials is cached (removed on timeout)
+```sh
+git push origin main
+```
+
 ***
 
 <br>
@@ -302,6 +322,20 @@ git add .
 git commit -m "Adding IRS_Lab_Shell development docker as a Git submodule"
 git push origin main
 ```
+
+Enter Credentials
+Enter your GitHub username, replace `<github_username>`
+```sh
+Username for 'https://github.com': <github_username>
+```
+
+Enter your [Personal Access Token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic), replace `<personal_access_token>`
+```sh
+Password for 'https://<github_username>@github.com': <personal_access_token>
+```
+
+**Optional:** You can store your credentials for multiple uses before pushing a commit by follow the steps under: [Debugging](#debugging) > [Store Authentication Credentials](#store-authentication-credentials-temporarily)
+
 
 ### 2. Clone your Repository with IRS_Lab_Shell
 ```sh
