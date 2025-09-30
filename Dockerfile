@@ -1,3 +1,6 @@
+# ------------------------------------------------------------------------------------------------------------------------
+# Base stage: Single build stage with required dependencies and ROS 2 workspace packages
+# ------------------------------------------------------------------------------------------------------------------------
 # Use a base image with ROS Humble and Ubuntu Jammy
 FROM ros:humble-ros-base-jammy AS base
 
@@ -11,8 +14,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Install development tools and useful utilities
 # The `&&` links commands together to reduce the number of image layers
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get update && apt-get install -y \
     nano \
     less \
     git \
@@ -57,10 +59,12 @@ RUN apt-get update && \
     libx11-dev \
     libxext-dev \
     libxtst-dev \
-    libxrender-dev \
-    && apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
+    libxrender-dev && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
+# ------------------------------------------------------------------------------------------------------------------------
+# CONTAINER CONFIGURATION
+# ------------------------------------------------------------------------------------------------------------------------
 
 # Add ROS 2 environment sourcing to the bashrc file
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
