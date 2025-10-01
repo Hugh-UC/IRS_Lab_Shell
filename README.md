@@ -198,7 +198,7 @@ The repository structure below is **recommended** to maintain a clean workspace 
     - Keeps your code separate from temporary build files.
 2. **Submodule Location:** This repository, `lab_shell_docker`, **should** reside in your group repository's root directory, **`~/IRS_2025_<group_number>`**, to ensure a consistent and predictable workspace structure for all collaborators.
     - This is best practice when integrating a core development tool as a top-level Git submodule.
-3. **Package Build Directories:** During the ROS 2 build process (`colcon build`) in `~/irslab_ws`, Folders like `build`, `install`, and `log` are generated into your group repository root.
+3. **Package Build Directories:** During the ROS 2 build process (`colcon build`) in `~/irslab_ws`, folders like `build`, `install`, and `log` are generated into your group repository root.
     - These files can be kept, only requiring built packages to be sourced in each new terminal session (`source install/local_setup.bash`).
     - Alternatively, it is best practice to ignore these files, adding them to a `.gitignore` file.
 
