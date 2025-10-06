@@ -151,7 +151,7 @@ docker compose up -d --build
 
 Execute new session
 ```sh
-docker exec -it lab-shell /bin/bash
+docker exec -it lab-shell /bin/bash -l
 ```
 
 Navigate to workspace
@@ -201,6 +201,8 @@ The repository structure below is **recommended** to maintain a clean workspace 
 3. **Package Build Directories:** During the ROS 2 build process (`colcon build`) in `~/irslab_ws`, folders like `build`, `install`, and `log` are generated into your group repository root.
     - These files can be kept, only requiring built packages to be sourced in each new terminal session (`source install/local_setup.bash`).
     - Alternatively, it is best practice to ignore these files, adding them to a `.gitignore` file.
+
+**UPDATE (v1.1):** `source install/local_setup.bash` no longer needs to be run for any new terminal session! `source install/local_setup.bash` is only necessary for newly built packages (`colcon build`).
 
 <br>
 
@@ -275,7 +277,7 @@ docker ps
 
 Execute new session
 ```sh
-docker exec -it <container_name> /bin/bash
+docker exec -it <container_name> /bin/bash -l
 ```
 
 <br>
@@ -286,7 +288,7 @@ There may have been an issue with the custom docker sourcing the ros2 environmen
 
 Execute session
 ```sh
-docker exec -it lab-shell /bin/bash
+docker exec -it lab-shell /bin/bash -l
 ```
 
 Source ROS2 environment
@@ -308,7 +310,7 @@ In this case, you will have to install the Middleware after every Docker restart
 
 Execute session
 ```sh
-docker exec -it lab-shell /bin/bash
+docker exec -it lab-shell /bin/bash -l
 ```
 
 Install Middleware
