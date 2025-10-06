@@ -69,6 +69,9 @@ RUN apt-get update && apt-get install -y \
 # Add ROS 2 environment sourcing to the bashrc file
 RUN echo "source /opt/ros/humble/setup.bash" >> /root/.bashrc
 
+# Add local workspace sourcing to the bashrc file
+RUN echo "source /root/irslab_ws/install/local_setup.bash" >> /root/.bashrc
+
 # Create a directory for your ROS 2 workspace
 WORKDIR /
 
