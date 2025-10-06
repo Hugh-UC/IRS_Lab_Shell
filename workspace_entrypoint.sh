@@ -19,7 +19,7 @@ if [ -f "$WORKSPACE_ROOT/install/setup.bash" ]; then
 fi
 
 WORKSPACE_ROOT="/root/irslab_ws"
-cd WORKSPACE_ROOT
+cd "WORKSPACE_ROOT"
 colcon build
 
 if [ -f "$WORKSPACE_ROOT/install/setup.bash" ]; then
