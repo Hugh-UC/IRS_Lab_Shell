@@ -20,6 +20,13 @@ else
     echo "WARNING: Base ROS environment not sourced!"
 fi
 
+# Process BOTH C++ and Python packages.
+echo "Checking for local workspace source code and running full build..."
+
+cd "$WORKSPACE_ROOT"
+colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release \
+             --event-handlers console_direct+
+
 # Source the local workspace setup, if it exists
 if [ -f "$WORKSPACE_ROOT/install/local_setup.bash" ]; then
     echo "Sourcing local ROS workspace: $WORKSPACE_ROOT/install/local_setup.bash"
