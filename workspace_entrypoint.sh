@@ -13,14 +13,13 @@ else
 fi
 
 # Source the local workspace setup, if it exists
-if [ -f "$WORKSPACE_ROOT/install/setup.bash" ]; then
-    echo "Sourcing local ROS workspace: $WORKSPACE_ROOT/install/setup.bash"
-    source "$WORKSPACE_ROOT/install/setup.bash"
-fi
+#if [ -f "$WORKSPACE_ROOT/install/setup.bash" ]; then
+#    echo "Sourcing local ROS workspace: $WORKSPACE_ROOT/install/setup.bash"
+#    source "$WORKSPACE_ROOT/install/setup.bash"
+#fi
 
 WORKSPACE_ROOT="/root/irslab_ws"
 cd "WORKSPACE_ROOT"
-colcon build
 
 if [ -f "$WORKSPACE_ROOT/install/setup.bash" ]; then
     echo "Sourcing local ROS workspace: $WORKSPACE_ROOT/install/setup.bash"
