@@ -18,15 +18,12 @@ fi
 #    source "$WORKSPACE_ROOT/install/setup.bash"
 #fi
 
-WORKSPACE_ROOT="/root/irslab_ws"
-cd "WORKSPACE_ROOT"
-
 if [ -f "$WORKSPACE_ROOT/install/setup.bash" ]; then
     echo "Sourcing local ROS workspace: $WORKSPACE_ROOT/install/setup.bash"
     source "$WORKSPACE_ROOT/install/setup.bash"
 else
-    echo "Sourcing local ROS workspace: $WORKSPACE_ROOT/install/local_setup.bash"
-    source "$WORKSPACE_ROOT/install/local_setup.bash"
+    echo "Sourcing local ROS workspace: $WORKSPACE_ROOT/irslab_ws/install/local_setup.bash"
+    source "$WORKSPACE_ROOT/irslab_ws/install/local_setup.bash"
 fi
 
 exec "$@"
