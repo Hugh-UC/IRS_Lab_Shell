@@ -8,7 +8,7 @@ FROM ros:humble-ros-base-jammy AS base
 SHELL ["/bin/bash", "-c"]
 
 # Define and set build argument
-ARG IS_BUILD=false
+ARG COLCON=false
 ENV RUN_COLCON_BUILD=${COLCON}
 
 # Set environment variables to match the lab setup for seamless ROS 2 communication
