@@ -46,6 +46,7 @@ if [ "$RUN_COLCON_BUILD" = "true" ]; then
     echo "Colcon Build Complete."
 else
     echo "WARNING: No build signal detected. Skipping colcon build."
+fi
 
 
 # Source the local workspace setup, if it exists

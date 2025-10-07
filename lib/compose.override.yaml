@@ -1,5 +1,10 @@
 services:
   lab-shell:
+    build:
+      context: DOCKERFILE_CONTEXT
+      args:
+        - COLCON
+
     container_name: lab-shell
     image: ghcr.io/hugh-uc/irs-lab-shell:humble
 
@@ -15,7 +20,7 @@ services:
 
     # volume mapping for local folder links
     volumes:
-      - PLACEHOLDER:/root/irslab_ws
+      - IRS_CONTEXT:/root/irslab_ws
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /etc/localtime:/etc/localtime:ro
       - /dev:/dev
@@ -38,16 +43,16 @@ services:
   # adds a volume to share local files with lab containers
   irs-simulation:
     volumes:
-      - PLACEHOLDER:/root/irslab_ws
+      - IRS_CONTEXT:/root/irslab_ws
       - /tmp/.X11-unix:/tmp/.X11-unix:rw    # GUI related
 
   irs-openplc-runtime:
     volumes:
-      - PLACEHOLDER:/root/irslab_ws
+      - IRS_CONTEXT:/root/irslab_ws
   
   omron_moma_ros2:
 #    command: "true"
     volumes:
-      - PLACEHOLDER:/root/irslab_ws
+      - IRS_CONTEXT:/root/irslab_ws
       - /dev:/dev
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
