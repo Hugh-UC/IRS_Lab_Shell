@@ -7,6 +7,10 @@ FROM ros:humble-ros-base-jammy AS base
 # Set shell to bash
 SHELL ["/bin/bash", "-c"]
 
+# Define and set build argument
+ARG IS_BUILD=false
+ENV RUN_COLCON_BUILD=${IS_BUILD_RUN}
+
 # Set environment variables to match the lab setup for seamless ROS 2 communication
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
 ENV ROS_DOMAIN_ID=0
