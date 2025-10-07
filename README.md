@@ -131,10 +131,11 @@ docker compose up
 
 Optional Flags:
 ```sh
-docker compose up -d --build
+docker compose up -d --build --build-arg COLCON=true
 ```
 - `docker compose up -d`: Use the `-d` (detached) flag to run the containers in the background.
 - `docker compose up --build`: Use the `--build` flag to force a rebuild of the Docker image from the Dockerfile.
+- `docker compose up --build --build-arg IS_BUILD_RUN=true`: Use the `--build-arg IS_BUILD_RUN=true` flag **in conjunction with `--build`** to pass a signal to the running container to execute **`colcon build`** on initialisation.
 
 <br>
 
