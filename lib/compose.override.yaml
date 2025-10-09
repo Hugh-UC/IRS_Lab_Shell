@@ -31,7 +31,7 @@ services:
       - NVIDIA_DRIVER_CAPABILITIES=all
       - ROS_DOMAIN_ID=0
       - PYTHONUNBUFFERED=1
-      - COLCON=false        # control colcon build process in 'workspace_entrypoint.sh'
+      - COLCON=${COLCON:-false}       # control colcon build process in 'workspace_entrypoint.sh'
 
     privileged: true
     restart: unless-stopped
