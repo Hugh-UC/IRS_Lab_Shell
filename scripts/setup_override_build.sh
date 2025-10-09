@@ -1,4 +1,11 @@
 #!/bin/bash
+# --------------------------------------
+# ---           DO NOT USE           ---
+# --------------------------------------
+
+# The directory where this script is running from
+SCRIPT_DIR="$(pwd)"
+
 
 # --- Part 1: Move the override file ---
 
@@ -74,7 +81,24 @@ sed -i "s|IRS_CONTEXT|${VOLUME_PATH}|g" "$OVERRIDE_FILE_DESTINATION"
 echo -e "| Updated: $OVERRIDE_FILE_DESTINATION\n| with the volume path: ${VOLUME_PATH}"
 
 
-# --- Script Complete ---
+# --- Part 3: Update the Dockerfile Context Placeholder (DOCKERFILE_CONTEXT) ---
 
+# Set the context directory
+DOCKERFILE_CONTEXT=$(dirname "$SCRIPT_DIR")
+
+# Check for the Dockerfile for safety.
+if [ ! -f "$DOCKERFILE_CONTEXT/Dockerfile" ]; then
+    echo -e "! Warning: Dockerfile not found at: $DOCKERFILE_CONTEXT/Dockerfile"
+    echo -e "! Ensure the script is run from the correct 'scripts' directory."
+else
+    echo -e "| Success! Found Dockerfile directory: $DOCKERFILE_CONTEXT"
+fi
+
+# This replacement ensures the 'lab-shell' service's build block is configured correctly.
+sed -i "s|DOCKERFILE_CONTEXT|${DOCKERFILE_CONTEXT}|g" "$OVERRIDE_FILE_DESTINATION"
+
+echo -e "| Updated: $OVERRIDE_FILE_DESTINATION\n| with the build context path: ${DOCKERFILE_CONTEXT}"
+
+# Script Complete
 echo -e "| You can now use:\n| - 'docker compose up', or\n| - 'docker compose down',\n| directly from your lab repository!"
 echo -e "| DONE!"

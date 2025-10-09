@@ -88,4 +88,4 @@ RUN chmod +x /workspace_entrypoint.sh
 ENTRYPOINT ["/workspace_entrypoint.sh"]
 
 # Set the default command to keep the container running
-CMD ["bash", "-l"]        # depricated: CMD ["tail", "-f", "/dev/null"]
+CMD ["bash", "-l"]

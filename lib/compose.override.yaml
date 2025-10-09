@@ -18,7 +18,7 @@ services:
 
     # volume mapping for local folder links
     volumes:
-      - /home/hugh/IRS_2025_01:/root/irslab_ws
+      - IRS_CONTEXT:/root/irslab_ws
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /etc/localtime:/etc/localtime:ro
       - /dev:/dev
@@ -35,7 +35,7 @@ services:
 
     privileged: true
     restart: unless-stopped
-  
+
   
   # adds a volume to share local files with lab containers
   irs-simulation:

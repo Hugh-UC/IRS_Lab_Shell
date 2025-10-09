@@ -87,6 +87,13 @@ Enter this repositories scripts folder
 cd ~/IRS_Lab_Shell/scripts
 ```
 
+**OR**
+
+If using as a submodule (see: '[IRS_Lab_Shell as Submodule](#irs_lab_shell-as-submodule)')
+```sh
+cd ~/IRS_2025_<groups_number>/lab_shell_docker/scripts
+```
+
 Allow permissions to run script
 ```sh
 chmod +x setup_override.sh
@@ -129,13 +136,13 @@ Start the docker containers
 docker compose up
 ```
 
-Optional Flags:
+Optional Environment Flag:
 ```sh
-docker compose up -d --build --build-arg COLCON=true
+COLCON=true docker compose up
 ```
 - `docker compose up -d`: Use the `-d` (detached) flag to run the containers in the background.
 - `docker compose up --build`: Use the `--build` flag to force a rebuild of the Docker image from the Dockerfile.
-- `docker compose up --build --build-arg IS_BUILD_RUN=true`: Use the `--build-arg IS_BUILD_RUN=true` flag **in conjunction with `--build`** to pass a signal to the running container to execute **`colcon build`** on initialisation.
+- `COLCON=true docker compose up`: Use `COLCON=true` to pass a signal to the entrypoint script to execute **`colcon build`** on initialisation.
 
 <br>
 
