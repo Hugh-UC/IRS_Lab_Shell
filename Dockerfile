@@ -9,7 +9,7 @@ SHELL ["/bin/bash", "-c"]
 
 # Define and set build argument
 ARG COLCON=false
-ENV RUN_COLCON_BUILD=${COLCON}
+ENV COLCON=${COLCON}
 
 # Set environment variables to match the lab setup for seamless ROS 2 communication
 ENV RMW_IMPLEMENTATION=rmw_cyclonedds_cpp

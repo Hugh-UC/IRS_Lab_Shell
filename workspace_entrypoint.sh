@@ -36,8 +36,8 @@ fi
 echo "Checking for local workspace source code and build signal (for a full build)..."
 
 # Check Docker environment variable
-if [ "$RUN_COLCON_BUILD" = "true" ]; then
-    echo "Running colcon build on mounted volume $WORKSPACE_ROOT..."
+if [ "$COLCON" = "true" ]; then
+    echo "Environment variable 'COLCON=true' detected. Running colcon build on mounted volume $WORKSPACE_ROOT..."
 
     cd "$WORKSPACE_ROOT"
     colcon build --cmake-args -DCMAKE_BUILD_TYPE=Release \
@@ -45,7 +45,7 @@ if [ "$RUN_COLCON_BUILD" = "true" ]; then
     
     echo "Colcon Build Complete."
 else
-    echo "WARNING: No build signal detected. Skipping colcon build."
+    echo "WARNING: Environment variable not detected. Skipping colcon build."
 fi
 
 
